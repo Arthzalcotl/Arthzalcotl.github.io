@@ -1,8 +1,5 @@
 $(document).ready((e) => {
-	let data;
-	loadJSON((response) => {
-		data = JSON.parse(response);
-	});
+	let data = loadJSON('./data.json');
 
 	listSort(data)
 
@@ -15,16 +12,19 @@ $(document).ready((e) => {
 	$('.container .row').html(data_str);
 });
 
-function loadJSON(callback) {   
+function loadJSON(path) {   
 	var xobj = new XMLHttpRequest();
 	xobj.overrideMimeType("application/json");
-	xobj.open('GET', './data.json', true);
-	xobj.onreadystatechange = () => {
-		if (xobj.readyState == 4 && xobj.status == "200") {
-			callback(xobj.responseText);
-		}
-	};
-	xobj.send(null);  
+	xobj.open('GET', path, false);
+  xobj.send();
+  if (xobj.status==200)
+  {
+    return xobj.responseText;
+  }
+  else {
+    // TODO Throw exception
+    return null;
+  }  
 }
 
 function listSort(list_data) {
