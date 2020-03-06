@@ -7,7 +7,7 @@ $(document).ready((e) => {
 		data_str += item.name
 		data_str += '</div>';
 	}
-	$('.container .row').html(data_str);
+	// $('.container .row').html(data_str);
 });
 
 function listSort(list_data) {
