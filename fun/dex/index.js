@@ -1,4 +1,6 @@
 $(document).ready((e) => {
+	let data = loadJSON('./data.json');
+
 	listSort(data)
 
 	let data_str = ''
@@ -7,8 +9,23 @@ $(document).ready((e) => {
 		data_str += item.name
 		data_str += '</div>';
 	}
-	// $('.container .row').html(data_str);
+	$('.container .row').html(data_str);
 });
+
+function loadJSON(path) {   
+	var xobj = new XMLHttpRequest();
+	xobj.overrideMimeType("application/json");
+	xobj.open('GET', path, false);
+  xobj.send();
+  if (xobj.status==200)
+  {
+    return xobj.responseText;
+  }
+  else {
+    // TODO Throw exception
+    return null;
+  }  
+}
 
 function listSort(list_data) {
 	list_data.sort(function(a, b) {
