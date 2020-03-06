@@ -1,6 +1,6 @@
 $(document).ready((e) => {
 	let data_str = ''
-	for(item in data) {
+	for(item of data) {
 		data_str += '<div class="col-sm-3">';
 		data_str += item.name
 		data_str += '</div>';
