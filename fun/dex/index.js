@@ -1,4 +1,9 @@
 $(document).ready((e) => {
+	let data;
+	loadJSON((response) => {
+		data = JSON.parse(response);
+	});
+
 	listSort(data)
 
 	let data_str = ''
@@ -7,8 +12,20 @@ $(document).ready((e) => {
 		data_str += item.name
 		data_str += '</div>';
 	}
-	// $('.container .row').html(data_str);
+	$('.container .row').html(data_str);
 });
+
+function loadJSON(callback) {   
+	var xobj = new XMLHttpRequest();
+	xobj.overrideMimeType("application/json");
+	xobj.open('GET', './data.json', true);
+	xobj.onreadystatechange = () => {
+		if (xobj.readyState == 4 && xobj.status == "200") {
+			callback(xobj.responseText);
+		}
+	};
+	xobj.send(null);  
+}
 
 function listSort(list_data) {
 	list_data.sort(function(a, b) {

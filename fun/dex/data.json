@@ -1,0 +1,43 @@
+[
+	{
+		name: "Hunter",
+		desc: "",
+		category: "",
+		tags: "",
+		company: "",
+		checklist: [
+			{
+				name: "",
+				consumed: false
+			}
+		],
+		complete: false
+	},
+	{
+		name: "Boomer",
+		desc: "",
+		category: "",
+		tags: "",
+		company: "",
+		checklist: [],
+		complete: false
+	},
+	{
+		name: "Stalker",
+		desc: "",
+		category: "",
+		tags: "",
+		company: "",
+		checklist: [],
+		complete: false
+	},
+	{
+		name: "Reaper",
+		desc: "",
+		category: "",
+		tags: "",
+		company: "",
+		checklist: [],
+		complete: false
+	}
+]
